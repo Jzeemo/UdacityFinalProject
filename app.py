@@ -299,4 +299,10 @@ def create_app():
             "message": "Internal Server Error! Sry"
         }), 400
 
+    @app.errorhandler(AuthError)
+    def handle_auth_error(ex):
+        response = jsonify(ex.error)
+        response.status_code = ex.status_code
+        return response
+
     return app

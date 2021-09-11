@@ -6,7 +6,7 @@ from sqlalchemy.sql.sqltypes import DateTime
 
 #Database Config
 database_name = "agency"
-database_path = "postgresql://{}/{}".format('postgres:123@localhost:5432', database_name)
+database_path = "postgresql://{}/{}".format('postgres:UdacityPassword@agency.cpwbbkd2g7q2.ap-southeast-1.rds.amazonaws.com:5432', database_name)
 
 db = SQLAlchemy()
 
