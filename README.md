@@ -140,22 +140,22 @@ The `--development` flag will detect file changes and restart the server automat
   * Creates a new actor
   * Returns JSON object with newly created actor
 * Sample: POST Method`http://localhost:5000/actors'
-    
+
     - Sample Request Body
 
-        '{            
+        {            
             {
                 "name":"Jack Nicholson",
                 "age":65,
                 "gender": "Male"
             }
-        }'
+        }
         
         <br>
 
     - Sample Response 
 
-        '{
+        {
             "actor_created": "Jack Nicholson",
             "actors": [
                 {
@@ -179,5 +179,5 @@ The `--development` flag will detect file changes and restart the server automat
             ],
             "success": true,
             "total_actors": 3
-        }'
+        }
 
