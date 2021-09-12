@@ -28,8 +28,7 @@ def create_app():
         start_value = (pages - 1) * 10
         end_value = start_value + 10
 
-        data = [data.format() for data in selection]
-        current_data = data[start_value:end_value]
+        current_data = selection[start_value:end_value]
 
         return current_data
 
@@ -45,9 +44,13 @@ def create_app():
         movies = Movie.query.all()
 
         #convert to list
-        movies_list = [movie.full_format() for movie in movies]                
+        movies_list = [movie.format() for movie in movies] 
 
-        return jsonify({'success': True,'movies': movies_list}) 
+        #get total actor and current actor
+        total_movie = len(Movie.query.all())
+        current_actor = paginate_list(request, movies_list)                
+
+        return jsonify({'success': True,'movies': current_actor,'total_movies': total_movie}) 
 
     @app.route('/actors')
     @requires_auth("get:actors")
@@ -57,9 +60,13 @@ def create_app():
         actors = Actor.query.all()
 
         #convert to list
-        actors_list = [actor.format() for actor in actors]                
+        actors_list = [actor.format() for actor in actors]  
 
-        return jsonify({'success': True,'actors': actors_list}) 
+        #get total actor and current actor
+        total_actor = len(Actor.query.all())
+        current_actor = paginate_list(request, actors_list)              
+
+        return jsonify({'success': True,'actors': current_actor,'total_actors': total_actor}) 
 
     '''
     POST Method

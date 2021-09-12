@@ -60,14 +60,6 @@ class Movie(db.Model):
         db.session.commit()
 
     def format(self):
-        return {
-        'id': self.id,
-        'title': self.title,
-        'release_date': self.release_date
-        }
-
-    def full_format(self):
-
         actor_list = []
         for actor in self.actors:
             actor_list.append(actor.format())
@@ -77,7 +69,7 @@ class Movie(db.Model):
         'title': self.title,
         'release_date': self.release_date,
         'actors': actor_list
-        }
+        }    
 '''
 Actor
 '''

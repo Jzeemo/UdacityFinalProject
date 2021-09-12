@@ -59,19 +59,125 @@ The `--development` flag will detect file changes and restart the server automat
 ## API Reference
 
 ### Getting Started
-#### GET /movies
+#### GET /movies?page=<page_number>
 
 * Description: Returns a list movies.
-* Sample: `http://localhost:5000/categories`<br>
+* Sample: `http://localhost:5000/movies?page=1`<br>
 
         {
-            "categories": {
-                "1": "Science",
-                "2": "Art",
-                "3": "Geography",
-                "4": "History",
-                "5": "Entertainment",
-                "6": "Sports"
-            },
-            "success": true
+            "movies": [
+                {
+                    "actors": [
+                        {
+                            "age": 80,
+                            "gender": "Male",
+                            "id": 2,
+                            "name": "Jack Nicholson"
+                        }
+                    ],
+                    "id": 3,
+                    "release_date": "09/2020",
+                    "title": "John Wick2"
+                },
+                {
+                    "actors": [
+                        {
+                            "age": 65,
+                            "gender": "Male",
+                            "id": 3,
+                            "name": "Jack Nicholson"
+                        },
+                        {
+                            "age": 80,
+                            "gender": "Male",
+                            "id": 2,
+                            "name": "Jack Nicholson"
+                        }
+                    ],
+                    "id": 4,
+                    "release_date": "09/2020",
+                    "title": "John Wick2"
+                }
+            ],
+            "success": true,
+            "total_movies": 2
         }
+
+
+#### GET /actors?page=<page_number>
+
+* Description: Returns a list actors.
+* Sample: `http://localhost:5000/actors?page=1`<br>
+
+        {
+            "actors": [
+                {
+                    "age": 65,
+                    "gender": "Male",
+                    "id": 3,
+                    "name": "Jack Nicholson"
+                },
+                {
+                    "age": 65,
+                    "gender": "Male",
+                    "id": 4,
+                    "name": "Jack Nicholson"
+                },
+                {
+                    "age": 80,
+                    "gender": "Male",
+                    "id": 2,
+                    "name": "Jack Nicholson"
+                }
+            ],
+            "success": true,
+            "total_actors": 3
+        }
+
+#### POST /actors
+
+* Description:
+  * Creates a new actor
+  * Returns JSON object with newly created actor
+* Sample: POST Method`http://localhost:5000/actors'
+    
+    - Sample Request Body
+
+        '{            
+            {
+                "name":"Jack Nicholson",
+                "age":65,
+                "gender": "Male"
+            }
+        }'
+        
+        <br>
+
+    - Sample Response 
+
+        '{
+            "actor_created": "Jack Nicholson",
+            "actors": [
+                {
+                    "age": 65,
+                    "gender": "Male",
+                    "id": 2,
+                    "name": "Jack Nicholson"
+                },
+                {
+                    "age": 65,
+                    "gender": "Male",
+                    "id": 3,
+                    "name": "Jack Nicholson"
+                },
+                {
+                    "age": 65,
+                    "gender": "Male",
+                    "id": 4,
+                    "name": "Jack Nicholson"
+                }
+            ],
+            "success": true,
+            "total_actors": 3
+        }'
+
