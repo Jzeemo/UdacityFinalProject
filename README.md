@@ -2,7 +2,7 @@
 
 ### Motivation
 
-- This project is the final project of Udacity's Full Stack Web Developer Nano Degree and I have learn lot of thing likes how to write the testing , decumentation, implementation from sketch.In this project, I developed by using the knowledge that giving from this course. 
+- This project is the final project of Udacity's Full Stack Web Developer Nano Degree Course and I have learned a lot of things likes how to write the testing, documentation, implementation from sketch. In this project, I developed by using the knowledge that giving from this course. 
 
 **Casting Agency** - This project is providing the api for casting agency application that include assistant, director and producer roles. Eash of the role has their own authorization.
 
