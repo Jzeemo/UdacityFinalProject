@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, abort, jsonify, request
+from flask import Flask, abort, jsonify, request,render_template, make_response
 from flask_cors import CORS
 
 from src.auth.auth import AuthError, requires_auth
@@ -28,9 +28,14 @@ def create_app():
         start_value = (pages - 1) * 10
         end_value = start_value + 10
 
-        current_data = selection[start_value:end_value]
+        data = [data.format() for data in selection]
+        current_data = data[start_value:end_value]
 
         return current_data
+
+    @app.route('/')    
+    def index():                 
+        return make_response(render_template('index.html'))
 
     '''
     Get Method
@@ -38,33 +43,21 @@ def create_app():
 
     @app.route('/movies')
     @requires_auth("get:movies")
-    def get_all_movies():
-
-        #get all category
-        movies = Movie.query.all()
-
-        #convert to list
-        movies_list = [movie.format() for movie in movies] 
+    def get_all_movies():                 
 
         #get total actor and current actor
         total_movie = len(Movie.query.all())
-        current_actor = paginate_list(request, movies_list)                
+        current_actor = paginate_list(request, Movie.query.all())                
 
         return jsonify({'success': True,'movies': current_actor,'total_movies': total_movie}) 
 
     @app.route('/actors')
     @requires_auth("get:actors")
-    def get_all_actors():
-
-        #get all category
-        actors = Actor.query.all()
-
-        #convert to list
-        actors_list = [actor.format() for actor in actors]  
+    def get_all_actors():                
 
         #get total actor and current actor
         total_actor = len(Actor.query.all())
-        current_actor = paginate_list(request, actors_list)              
+        current_actor = paginate_list(request, Actor.query.all())              
 
         return jsonify({'success': True,'actors': current_actor,'total_actors': total_actor}) 
 
@@ -137,7 +130,8 @@ def create_app():
             current_movies = paginate_list(request, Movie.query.order_by(Movie.id).all())
             
             return jsonify({'success': True,'movie_created': movie.title,'movies':current_movies,'total_movies': total_movies })
-        except Exception:
+        except Exception as error:
+            print(error)
             abort(422)
 
     
@@ -215,7 +209,7 @@ def create_app():
                     movie.actors.append(actor)          
             
             movie.update()
-            return jsonify({"success": True, "movie": movie.full_format()})
+            return jsonify({"success": True, "movie": movie.format()})
 
         except Exception as error:
             print(error)                    
