@@ -56,6 +56,32 @@ flask run
 
 The `--development` flag will detect file changes and restart the server automatically.
 
+### Roles
+
+- Assistant
+    - Email : assistant@lwinagency.com
+    - Password : UdacityPassword
+    - Token : eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlUzTTViVTlzZEt3SGZHRE1neHVlTyJ9.eyJpc3MiOiJodHRwczovL2x3aW5hZ2VuY3kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMzg4MWQ5NGZlYzZkMDA2ODJhNGQ0MSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTEwMCIsImlhdCI6MTYzMTM1NjkzMCwiZXhwIjoxNjMxNDQzMzMwLCJhenAiOiJ3RVdjSjFWNGQ2NHFDb3Vnc3k5c1o3RTAybmtYaGREVCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiXX0.qbP7cZTvpknLl0ifoDjJ9TBIQTl94gXIXf21lc6Flxe52E7_0IBUwo6USRLIo3jfGaytSaUUISfaEOYVa3qV0tezsed-sSlvHxSeED_9d5hAQeklnKWe_7YLdp4WWxB1hqpWPKt6OfkjBPfx9wWfvCB52PJsmsXCEr6mShdBzacHO5Pkz7PachFAG7D06bjkdacgpjksUSFXuRQDYfn4N7c7MZDukWcGOyg4jt48ODz55c8oZFGp4ClWrsL11HVLkzvhwCjPk9JOIs945RU5BaLffjD_plCexxiwpPM6NRS6KzOvA578IboXFCyxIatUFCP0XZCx7GdwH1-X3tu3Hg
+
+
+- Director
+    - Email : director@lwinagency.com
+    - Password : UdacityPassword
+    - Token : eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlUzTTViVTlzZEt3SGZHRE1neHVlTyJ9.eyJpc3MiOiJodHRwczovL2x3aW5hZ2VuY3kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMzg4MjgzY2JkMjcwMDA2OWY4MGM5YSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTEwMCIsImlhdCI6MTYzMTM2MDM0MywiZXhwIjoxNjMxNDQ2NzQzLCJhenAiOiJ3RVdjSjFWNGQ2NHFDb3Vnc3k5c1o3RTAybmtYaGREVCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.EOs7D4qq1r91mQ4fscrC6SCJxx3nbfCi3nFhakvFYl39uqcFo9lk8Nl2HZwy5CKnzlKxjBiixZVUhbIZL_se4ZiWy6ukfzlLSlY5_6tUG72vGYbeoT3Jg3lbEj9DYfvTx4WH2PpTMLomQy1NgOwip4mkGvSUxQJaqlK9miDTv2UcIoAvhFgSTE-DSwRJ8vobTjfms-UstXiXBQ9z7acEJ5JaapXb1q32xkzjiWp2-hKMqXV6k6ASzbWGrrXsBHzfKu1Jmi8Kx3jEUmXk5LuSQioLS4YwmRstpO06mcybtDGdf1JD6xRNHYI75LMnrhL5JJXyAvfuFVOPLG_vASyazw
+
+- Producer
+    - Email : producer@lwinagency.com
+    - Password : UdacityPassword
+    - Token : eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlUzTTViVTlzZEt3SGZHRE1neHVlTyJ9.eyJpc3MiOiJodHRwczovL2x3aW5hZ2VuY3kudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMzg4MmE1NjFiZDFlMDA2ODAxZDg0YyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTEwMCIsImlhdCI6MTYzMTM2MDI4MCwiZXhwIjoxNjMxNDQ2NjgwLCJhenAiOiJ3RVdjSjFWNGQ2NHFDb3Vnc3k5c1o3RTAybmtYaGREVCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.c3nciVkjED8bDwTiMSYcv_XWsdZQLFo5kW70oa6WsCGCg4naKhIE8H-ntiwQ5Yh8vlMw0XXD9iBrYuOwO-RDz07Jyfkt9sEz2TqqNiat3m4E1yr1SEKUXkzpEYd50yDyNU_n1pi_ldRYmYUMhfrbcKkwZUhRxOOsVcqRPJC9UBwwT_0rl737SGuzlWq5VTYzcmdVw3_Gwxhf7JwoRI8GJ3XaYmr_-JmbqqlCU6VJHcIjyvNvwcSgKvg5wwx573D6gbeGyrDjujiCYxE5co337GaxqVdZp5tyJK5TJ6919gr1R51vqq-AG6TnpS_822haIHTFxHf_DAX9TuL3C9k4EQ
+
+
+### Auth0 Login Url
+
+```bash
+https://lwinagency.us.auth0.com/authorize?audience=http://localhost:9100&response_type=token&client_id=wEWcJ1V4d64qCougsy9sZ7E02nkXhdDT&redirect_uri=http://localhost:9100/main
+```
+
+
 ## API Reference
 
 ### Getting Started
@@ -183,3 +209,132 @@ The `--development` flag will detect file changes and restart the server automat
             "total_actors": 3
         }
 
+#### POST /movies
+
+* Description:
+  * Creates a new movie
+  * Returns JSON object with newly created movie
+* Sample: POST Method`http://localhost:5000/movies'
+
+    - Sample Request Body
+    <br>
+
+        {
+            "title":"John Wick2",
+            "release_date":"09/2020",
+            "actors":[2,3]
+        }
+        
+    <br>
+
+    - Sample Response
+    <br> 
+
+        {
+            "movie_created": "John Wick2",
+            "movies": [
+                {
+                    "id": 3,
+                    "release_date": "09/2020",
+                    "title": "John Wick2"
+                },
+                {
+                    "id": 4,
+                    "release_date": "09/2020",
+                    "title": "John Wick2"
+                }
+            ],
+            "success": true,
+            "total_movies": 2
+        }
+
+
+#### PATCH /actors
+
+* Description:
+  * Update actor
+  * Returns JSON object with updated actor
+* Sample: PATCH Method`http://localhost:5000/actors/2'
+
+    - Sample Request Body
+    <br>
+
+        {
+            "age":80
+        }
+        
+    <br>
+
+    - Sample Response
+    <br> 
+
+        {
+            "actor": {
+                "age": 80,
+                "gender": "Male",
+                "id": 2,
+                "name": "Jack Nicholson"
+            },
+            "success": true
+        }   
+
+#### PATCH /movies
+
+* Description:
+  * Update movie
+  * Returns JSON object with updated movie
+* Sample: PATCH Method`http://localhost:5000/movies/3'
+
+    - Sample Request Body
+    <br>
+
+        {
+            "actors":[2]
+        }
+        
+    <br>
+
+    - Sample Response
+    <br> 
+
+        {
+            "movie": {
+                "actors": [
+                    {
+                        "age": 80,
+                        "gender": "Male",
+                        "id": 2,
+                        "name": "Jack Nicholson"
+                    }
+                ],
+                "id": 3,
+                "release_date": "09/2020",
+                "title": "John Wick2"
+            },
+            "success": true
+        }   
+
+#### DELETE /actors/\<int:id\>
+
+* Description:
+  * Deletes a actor by id 
+  * Returns id of deleted actor upon success.
+* Sample: Delete Method `http://localhost:5000/actors/2`<br>
+
+        {
+            "actors": 2,
+            "success": true
+        }
+
+
+#### DELETE /movies/\<int:id\>
+
+* Description:
+  * Deletes a actor by id 
+  * Returns id of deleted actor upon success.
+* Sample: Delete Method `http://localhost:5000/movies/2`<br>
+
+        {
+            "movies": 2,
+            "success": true
+        }
