@@ -142,6 +142,7 @@ The `--development` flag will detect file changes and restart the server automat
 * Sample: POST Method`http://localhost:5000/actors'
 
     - Sample Request Body
+    <br>
 
         {            
             {
@@ -151,9 +152,10 @@ The `--development` flag will detect file changes and restart the server automat
             }
         }
         
-        <br>
+    <br>
 
-    - Sample Response 
+    - Sample Response
+    <br> 
 
         {
             "actor_created": "Jack Nicholson",
