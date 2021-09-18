@@ -8,9 +8,10 @@ from jose import jwt
 
 DOMAIN = os.environ.get('AUTH0_DOMAIN')
 ALGORITHMS = os.environ.get('AUTH0_ALGORITHM')
-API_IDENTIFIER= os.environ.get('AUTH0_IDENTIFIER')
+API_IDENTIFIER = os.environ.get('AUTH0_IDENTIFIER')
 CLIENT_ID = os.environ.get('AUTH0_CLIENT_ID')
 CALLBACK_URL = os.environ.get('AUTH0_CALLBACK_URL')
+
 
 class AuthError(Exception):
     def __init__(self, error, status_code):
@@ -18,32 +19,31 @@ class AuthError(Exception):
         self.status_code = status_code
 
 
-#get the jwt token from header
+# get the jwt token from header
 def get_token_auth_header():
 
-    #check the Authorization include in request header
+    # check the Authorization include in request header
     if "Authorization" not in request.headers:
         raise AuthError(
             {"code": "not_found", "description": "Bearer Token Not Found"}, 401
         )
 
-    #get the Authorization string
+    # get the Authorization string
     authString = request.headers["Authorization"]
 
-    #split the the Authorization string by space
+    # split the the Authorization string by space
     parts = authString.split(" ")
 
-    #check Authorization header is correct format or not
+    # check Authorization header is correct format or not
     if parts[0] != "Bearer" or len(parts) != 2:
         raise AuthError(
             {"code": "invalid_token", "description": "Invalid Bearer Token"},
             401,
         )
 
-    
     jwtToken = parts[1]
 
-    #validate the jwt token format
+    # validate the jwt token format
     components = jwtToken.split(".")
     if len(components) != 3:
         raise AuthError(
@@ -53,10 +53,12 @@ def get_token_auth_header():
 
     return jwtToken
 
-#This is gonna be python decorator method for checking the permission
+# This is gonna be python decorator method for checking the permission
+
+
 def check_permissions(permission, payload):
 
-    #check the payload string whether permission keyword is include or not
+    # check the payload string whether permission keyword is include or not
     if "permissions" not in payload:
         raise AuthError(
             {
@@ -65,30 +67,32 @@ def check_permissions(permission, payload):
             },
             400,
         )
-    
+
     if permission not in payload["permissions"]:
         raise AuthError(
-        {"code": "unauthorized", "description": "Permission not granted"},
-        403,
-    )
+            {"code": "unauthorized", "description": "Permission not granted"},
+            403,
+        )
 
-    return True 
+    return True
 
-#this method to decode the jwt and return payload
+# this method to decode the jwt and return payload
+
+
 def verify_decode_jwt(token):
-    
-    #get the public key
+
+    # get the public key
     jsonurl = urlopen(
         "https://{}/.well-known/jwks.json".format(DOMAIN)
     )
-    
-    #get the public key structure
+
+    # get the public key structure
     publickey_list = json.loads(jsonurl.read())
 
     rsa_key = {}
 
-    for key in publickey_list["keys"]:        
-        #get the kid value from public key
+    for key in publickey_list["keys"]:
+        # get the kid value from public key
         if key["kid"] == jwt.get_unverified_header(token)["kid"]:
             rsa_key = {
                 "kty": key["kty"],
@@ -98,17 +102,17 @@ def verify_decode_jwt(token):
                 "e": key["e"],
             }
             break
-    
+
     if rsa_key:
-        try:                    
-            #decode the jwt and return the payload
+        try:
+            # decode the jwt and return the payload
             payload = jwt.decode(
                 token,
                 rsa_key,
                 algorithms=ALGORITHMS,
                 audience=API_IDENTIFIER,
                 issuer="https://{}/".format(DOMAIN),
-            )            
+            )
 
             return payload
 
@@ -122,7 +126,8 @@ def verify_decode_jwt(token):
             raise AuthError(
                 {
                     "code": "invalid_claims",
-                    "description": "Incorrect claims. Please, check the audience and issuer.",
+                    "description": "Incorrect claims." +
+                    " Please, check the audience and issuer.",
                 },
                 401,
             )
@@ -141,6 +146,7 @@ def verify_decode_jwt(token):
         },
         400,
     )
+
 
 def requires_auth(permission=""):
     def requires_auth_decorator(f):
